@@ -1,11 +1,57 @@
-// CConsoleApplication.c : file nay chua 'main' function. 
-// Chuong trinh phan mem Bat dau thuc thi & Ket thuc o day.
 
 #include <stdio.h>
-
+void kiemTraSoNguyen()
+{ 
+    printf("kiem tr so nguyen");
+	printf("\n");
+}
+void lapChucNang(int chonChucNang)
+{
+    int tiepTuc = 1;
+    while (tiepTuc==1)
+    {
+        switch (chonChucNang)
+        {
+            case 1:
+				kiemTraSoNguyen();
+                break;
+			case 2:
+                break;
+            case 3:
+                return;
+            case 0:
+                return;
+            default:
+				printf("Chon Lai [1-3]: ");
+				
+        }
+        printf("Tiep tuc chuc nang nay? [1=co | 0=Khong");
+		scanf_s("%d", &tiepTuc);
+        system("cls");//clear
+    }
+}
 int main()
 {
-    printf("Hi there!\n");
+    int chonChucNang;
+    do
+    {
+        pritf("Menu");
+        printf("\n");
+    
+        pritf("1. kiem tra so nguyen");
+        printf("\n");
+    
+        pritf("2. boi chung | uoc chung");
+        printf("\n");
+    
+        pritf("Moi chon chuc nang[0-3] ");
+        printf("\n");
+		scanf_s("%d", &chonChucNang);
+		lapChucNang(chonChucNang);  
+    } while (chonChucNang != 0);
+
+        return 0;
+    
 }
 
 // Debug/Run chuong trinh: bam "F5" hoac "Debug > Start Debugging" tren menu
