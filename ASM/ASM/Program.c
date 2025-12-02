@@ -92,7 +92,7 @@ void tinhTienChoQuanKaraoke() {
 		scanf_s("%d", &gioKetThuc);
 		if (gioBatDau < 12 || gioKetThuc> 23 || gioBatDau >= gioKetThuc) {
 						printf("Khong hop le. Vui long nhap lai!\n");
-						continue;
+						break;
 		}
 		soGio = gioKetThuc - gioBatDau;
 		if (soGio <= 3) {
@@ -113,8 +113,33 @@ void tinhTienChoQuanKaraoke() {
 
 void tinhTienDien() {
 	int chon;
+	int kwh;
+	int tongTien;
 	do {
 		printf("Tinh Tien Dien \n");
+
+		printf("Nhap so kwh: \n");
+		scanf_s("%d", &kwh);
+		if( kwh <= 50){
+			tongTien = kwh * 1678;
+		}
+		else if( kwh <= 100){
+			tongTien = 50 * 1678 + (kwh - 50) * 1734;
+		}
+		else if( kwh <= 200){
+			tongTien = 50 * 1678 + 50 * 1734 + (kwh - 100) * 2014;
+		}
+		else if( kwh <= 300){
+			tongTien = 50 * 1678 + 50 * 1734 + 100 * 2014 + (kwh - 200) * 2536;
+		}
+		else if( kwh <= 400){
+			tongTien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + (kwh -300) * 2834;
+		}
+		else {
+			tongTien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + 100 * 2834 + (kwh -400) *2927;
+		}
+		printf("Tong tien dien phai tra la: %.0d \n", tongTien);
+
 		printf("Tiep tuc chuc nang [1|khac]: ");
 		scanf_s("%d", &chon);
 	} while (chon == 1);
@@ -122,8 +147,25 @@ void tinhTienDien() {
 
 void chucnangDoiTien() {
 	int chon;
+	int soTien;
+	int menhGia[] = { 500, 200,100,50,20,10,5,2,1 };	
+	int soTo[9] = { 0 };
+	int i;
+
 	do {
 		printf("Chuc Nang Doi Tien \n");
+
+		printf("Nhap so tien: ");
+		scanf_s("%d", &soTien);
+		for (i = 0; i < 9; i++) {
+			soTo[i] = soTien / menhGia[i]; //so to
+
+			if (soTo[i] > 0) {
+				printf("%d to menh gia %d\n", soTo[i], menhGia[i]);
+			}
+			soTien = soTien % menhGia[i]; //so tien con lai
+		}
+
 		printf("Tiep tuc chuc nang [1|khac]: ");
 		scanf_s("%d", &chon);
 	} while (chon == 1);
