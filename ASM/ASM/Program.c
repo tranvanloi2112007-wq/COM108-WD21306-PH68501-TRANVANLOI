@@ -200,7 +200,7 @@ void chucNangTinhLaiXuatVayNganHangVayTraGop() {
 		}
 		printf("Tiep tuc chuc nang [1|khac]: ");
 		scanf_s("%d", &chon);
-		printf("---------------------------\n");
+		
 	} while (chon == 1);
 }
 
@@ -233,13 +233,45 @@ void vayTienMuaXe() {
 
 void xapXepThongTinSinhVien() {
 	int chon;
-	char hoten[50];
-	float diem;
-	char hocluc[20];
+	int n;
 	
 		
 	do {
 		printf("Xap Xep Thong Tin Sinh Vien \n");
+
+		printf("Nhap so sinh vien: ");
+		scanf_s("%d", &n);
+
+		char ten[50][50];
+		double diem[50];
+
+		for (int i = 0; i < n; i++) {
+			printf("Ten SV %d: ", i + 1);
+			scanf_s("%s", ten[i], sizeof(ten[i]));
+			printf("Diem: ");
+			scanf_s("%lf", &diem[i]);
+		}
+
+		// Bubble sort
+		for (int i = 0; i < n - 1; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if (diem[i] > diem[j]) {
+					double temp = diem[i];
+					diem[i] = diem[j];
+					diem[j] = temp;
+
+					char tempTen[50];
+					strcpy_s(tempTen, ten[i]);
+					strcpy_s(ten[i], ten[j]);
+					strcpy_s(ten[j], tempTen);
+				}
+			}
+		}
+
+		printf("\n--- Danh sach sau khi sap xep ---\n");
+		for (int i = 0; i < n; i++) {
+			printf("%s - %.2f\n", ten[i], diem[i]);
+		}
 
 		printf("Tiep tuc chuc nang [1|khac]: ");
 		scanf_s("%d", &chon);
@@ -298,14 +330,26 @@ void xayDungGameFPOLYLOTT() {
 
 void tinhToanPhanSo() {
 	int chon;
-
+	int a, b, c, d;
 	do {
-		printf("Tinh Toan Phan So \n");
+		printf(" Thuc thi phep tinh  \n");
+		
+		printf("Nhap phan so 1 (a/b): ");
+		scanf_s("%d/%d", &a, &b);
+		printf("Nhap phan so 2 (c/d): ");
+		scanf_s("%d/%d", &c, &d);
+
+		printf("Tong = %d/%d\n", a * d + b * c, b * d);
+		printf("Hieu = %d/%d\n", a * d - b * c, b * d);
+		printf("Tich = %d/%d\n", a * c, b * d);
+		printf("Thuong = %d/%d\n", a * d, b * c);
+
+
 		printf("Tiep tuc chuc nang [1|khac]: ");
 		scanf_s("%d", &chon);
+		printf("---------------------------\n");
 	} while (chon == 1);
 }
-
 int main()
 {
 	int chon;
