@@ -1,59 +1,112 @@
-#include<math.h>
 #include <stdio.h>
+#include <math.h>
+void kiemTraSoNguyen()
+{
+    printf("kiem tra so nguyen");
+    printf("\n");
+}
+void demoString() {
+    //string
+	char name[100] = "LOI";  // "LOI" : chuoi ki tu   'L', 'O', 'I' 
+    //gets(name);>fgets();
 
-//void kiemTraSoNguyen()
-//{ 
-//    printf("kiem tr so nguyen");
-//	printf("\n");
-//}
-//void lapChucNang(int chonChucNang)
-//{
-//    int tiepTuc = 1;
-//    while (tiepTuc==1)
-//    {
-//        switch (chonChucNang)
-//        {
-//            case 1:
-//				kiemTraSoNguyen();
-//                break;
-//			case 2:
-//                break;
-//            case 3:
-//                return;
-//            case 0:
-//                return;
-//            default:
-//				printf("Chon Lai [1-3]: ");
-//				
-//        }
-//        printf("Tiep tuc chuc nang nay? [1=co | 0=Khong");
-//		scanf_s("%d", &tiepTuc);
-//        system("cls");//clear
-//    }
-//}
-//int main()
-//{
-//    int chonChucNang;
-//    do
-//    {
-//        pritf("Menu");
-//        printf("\n");
-//    
-//        pritf("1. kiem tra so nguyen");
-//        printf("\n");
-//    
-//        pritf("2. boi chung | uoc chung");
-//        printf("\n");
-//    
-//        pritf("Moi chon chuc nang[0-3] ");
-//        printf("\n");
-//		scanf_s("%d", &chonChucNang);
-//		lapChucNang(chonChucNang);  
-//    } while (chonChucNang != 0);
-//
-//        return 0;
-//    
-//}
+    /*for (int i = 0; i < 3; i++) {
+		scanf_s(" %c", &name[i]);  
+    }*/
+
+	while (getchar() != '\n'); //clear buffer
+    {
+        printf("%c", getchar());
+    }
+	printf("Nhap Ten Cua Ban: ");
+	fgets(name, sizeof(name), stdin);
+    //xuat du lieu = for + printf
+
+    /*for (int i = 0; i < 3; i++) {
+        printf("%c", name[i]);
+    }*/
+
+    printf("%s", name);
+	printf("\n");
+    //puts(name);
+}
+void demoMang2Chieu()
+{
+    int array[2][3];
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            printf("Mang[%d][%d]+ ", i, j);
+            scanf_s("%d", &array[i][j]);
+        }
+    }
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+
+            printf("%d, ", &array[i][j]);
+        }
+        printf("\n");
+    }
+}
+void lapChucNang(int chonChucNang)
+{
+    int tiepTuc = 1;
+    while (tiepTuc == 1)
+    {
+        switch (chonChucNang)
+        {
+        case 1:
+            kiemTraSoNguyen();
+            break;
+        case 2:
+            demoString();
+            break;
+        case 3:
+            demoMang2Chieu();
+            break;
+
+        case 0:
+            return;
+        default:
+            printf("Chon Lai [1-3]: ");
+
+        }
+        printf("\nTiep tuc chuc nang nay? [1=co | 0=Khong");
+        scanf_s("%d", &tiepTuc);
+        system("cls");//clear
+    }
+}
+int main()
+{
+    int chonChucNang;
+    do
+    {
+        printf("Menu");
+        printf("\n");
+
+        printf("1. kiem tra so nguyen");
+        printf("\n");
+
+
+        printf("2. demoString");
+        printf("\n");
+        printf("3. demoMang2Chieu");
+        printf("\n");
+
+        printf("Moi chon chuc nang[0-3] ");
+        printf("\n");
+        scanf_s("%d", &chonChucNang);
+        if (chonChucNang != 0) {
+            lapChucNang(chonChucNang);
+        }
+    } while (chonChucNang != 0);
+
+
+}
+
 
 //int main()
 //{
@@ -79,14 +132,16 @@
 //    return 0;
 //}
 
-int main()
-{
-    char ten[50];
-	printf("Nhap Ten Cua Ban: ");
-    puts(ten);
-    gets(ten);
-	printf("Ten Cua Ban La: %s",ten);
-}
+
+
+//int main()
+//{
+//    char ten[50];
+//	printf("Nhap Ten Cua Ban: ");
+//    puts(ten);
+//    gets(ten);
+//	printf("Ten Cua Ban La: %s",ten);
+//}
 
 // Debug/Run chuong trinh: bam "F5" hoac "Debug > Start Debugging" tren menu
 

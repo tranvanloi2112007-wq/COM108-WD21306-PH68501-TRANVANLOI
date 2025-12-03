@@ -175,28 +175,36 @@ void chucnangDoiTien()
 
 void chucNangTinhLaiXuatVayNganHangVayTraGop() {
 	int chon;
-
-	//long soTienVay;
-	//double laiSuat = 0.05;  //5%/thang
-	//long tienGoc1Thang = soTienVay / 12;
-	//long soTienConLai = soTienVay;
 	do {
-	//	printf("Chuc Nang Tinh Lai Xuat Vay Ngan Hang Vay TRa Gop  \n");
-	//	
-	//	printf("Nhap so tien vay: ");
-	//	scanf_s("%ld", &soTienVay);
-	//	printf("\nKy han | Lai phai tra | Goc phai tra | Tong tien tra | So tien con lai\n");
-	//	for(int i = 1; i <= 12; i++) {
-	//		long tienLai = soTienConLai * laiSuat;
-	//		long tongTienTra = tienLai + tienGoc1Thang;
-	//		soTienConLai -= tienGoc1Thang;
-	//		printf("%5d | %11ld | %12ld | %13ld | %12ld\n", i, tienLai, tienGoc1Thang, tongTienTra, soTienConLai);
-	//	}
+		printf(" Thuc thi tinh lai suat  \n");
+		float tienVay;
+		float laiSuat = 0.05;
+		int kyHan = 12;
 
+		printf("Nhap so tien muon vay: ");
+		scanf_s("%f", &tienVay);
+
+		float gocPhaiTra = tienVay / kyHan;
+		float tienConLai = tienVay;
+
+		printf("\n===== Bang tra gop 12 thang =====\n");
+		printf("Ky Han | Lai phai tra | Goc phai tra | So tien phai tra | So tien con lai\n");
+
+		for (int i = 1; i <= kyHan; i++) {
+			float laiPhaiTra = tienConLai * laiSuat;
+			float tongPhaiTra = gocPhaiTra + laiPhaiTra;
+			tienConLai -= gocPhaiTra;
+
+			printf("%2d     | %10.0f    | %10.0f   | %15.0f   | %15.0f\n",
+				i, laiPhaiTra, gocPhaiTra, tongPhaiTra, tienConLai);
+		}
 		printf("Tiep tuc chuc nang [1|khac]: ");
 		scanf_s("%d", &chon);
+		printf("---------------------------\n");
 	} while (chon == 1);
 }
+
+
 
 void vayTienMuaXe() {
 	int chon;
@@ -247,7 +255,7 @@ void xayDungGameFPOLYLOTT() {
 		int user[2], system[2];
 		int i, j, trung = 0;
 
-		// Nh?p 2 s? t? ng??i ch?i
+		
 		printf("Nhap vao 2 so (01-15):\n");
 		for (i = 0; i < 2; i++) {
 			do {
@@ -256,18 +264,18 @@ void xayDungGameFPOLYLOTT() {
 			} while (user[i] < 1 || user[i] > 15);
 		}
 
-		// Kh?i t?o b? sinh s? ng?u nhiên
+		
 		srand(time(NULL));
 
-		// Sinh 2 s? ng?u nhiên t? 1-15
+		
 		for (i = 0; i < 2; i++) {
 			system[i] = rand() % 15 + 1;
 		}
 
-		// Hi?n th? s? h? th?ng
+		
 		printf("\nSo duoc quay: %02d %02d\n", system[0], system[1]);
 
-		// Ki?m tra s? trùng
+		
 		for (i = 0; i < 2; i++) {
 			for (j = 0; j < 2; j++) {
 				if (user[i] == system[j]) {
@@ -277,7 +285,7 @@ void xayDungGameFPOLYLOTT() {
 			}
 		}
 
-		// Hi?n th? k?t qu?
+		
 		if (trung == 2) printf("Chuc mung ban da trung giai nhat!\n");
 		else if (trung == 1) printf("Chuc mung ban da trung giai nhi!\n");
 		else printf("Chuc ban may man lan sau!\n");
@@ -290,6 +298,7 @@ void xayDungGameFPOLYLOTT() {
 
 void tinhToanPhanSo() {
 	int chon;
+
 	do {
 		printf("Tinh Toan Phan So \n");
 		printf("Tiep tuc chuc nang [1|khac]: ");
