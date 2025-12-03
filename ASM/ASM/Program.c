@@ -145,7 +145,8 @@ void tinhTienDien() {
 	} while (chon == 1);
 }
 
-void chucnangDoiTien() {
+void chucnangDoiTien()
+{
 	int chon;
 	int soTien;
 	int menhGia[] = { 500, 200,100,50,20,10,5,2,1 };	
@@ -158,7 +159,7 @@ void chucnangDoiTien() {
 		printf("Nhap so tien: ");
 		scanf_s("%d", &soTien);
 		for (i = 0; i < 9; i++) {
-			soTo[i] = soTien / menhGia[i]; //so to
+			 soTo[i] = soTien / menhGia[i]; //so to
 
 			if (soTo[i] > 0) {
 				printf("%d to menh gia %d\n", soTo[i], menhGia[i]);
@@ -173,8 +174,23 @@ void chucnangDoiTien() {
 
 void chucNangTinhLaiXuatVayNganHangVayTraGop() {
 	int chon;
+	long soTienVay;
+	double laiSuat = 0.05;  //5%/thang
+	long tienGoc1Thang = soTienVay / 12;
+	long soTienConLai = soTienVay;
 	do {
 		printf("Chuc Nang Tinh Lai Xuat Vay Ngan Hang Vay TRa Gop  \n");
+
+		printf("Nhap so tien vay: ");
+		scanf_s("%ld", &soTienVay);
+		printf("\nKy han | Lai phai tra | Goc phai tra | Tong tien tra | So tien con lai\n");
+		for(int i = 1; i <= 12; i++) {
+			double tienLai = soTienConLai * laiSuat;
+			double tongTienTra = tienLai + tienGoc1Thang;
+			soTienConLai -= tienGoc1Thang;
+			printf("%5d | %11ld | %12ld | %13ld | %12ld\n", i, tienLai, tienGoc1Thang, tongTienTra, soTienConLai);
+		}
+
 		printf("Tiep tuc chuc nang [1|khac]: ");
 		scanf_s("%d", &chon);
 	} while (chon == 1);
