@@ -7,28 +7,62 @@ void kiemTraSoNguyen()
 }
 void demoString() {
     //string
-	char name[100] = "LOI";  // "LOI" : chuoi ki tu   'L', 'O', 'I' 
+    char mangKyTu[100] = "LOI";  // "LOI" : chuoi ki tu   'L', 'O', 'I' 
     //gets(name);>fgets();
 
     /*for (int i = 0; i < 3; i++) {
-		scanf_s(" %c", &name[i]);  
+        scanf_s(" %c", &name[i]);
     }*/
 
-	while (getchar() != '\n'); //clear buffer
+    while (getchar() != '\n'); //clear buffer
     {
         printf("%c", getchar());
     }
-	printf("Nhap Ten Cua Ban: ");
-	fgets(name, sizeof(name), stdin);
+    printf("Nhap Ten Cua Ban: ");
+    fgets(mangKyTu, sizeof(mangKyTu), stdin);
     //xuat du lieu = for + printf
 
     /*for (int i = 0; i < 3; i++) {
         printf("%c", name[i]);
     }*/
 
-    printf("%s", name);
-	printf("\n");
+    printf("%s", mangKyTu);
+    printf("\n");
     //puts(name);
+
+    printf("String length: ");
+    printf("%d", strlen(mangKyTu) - 1);
+    printf("\n");
+    printf("String Compare The Same As: ");
+    printf("%d", strcmp("aBc", "aBc"));
+    printf("\n");
+    printf("String Compare Less than: ");
+    printf("%d", strcmp("A", "C"));
+    printf("\n");
+    printf("String Compare Greater than: ");
+    printf("%d", strcmp("C", "A"));
+    printf("\n");
+
+    printf("String Reverse (Encryption): ");
+    printf("%s", strrev(mangKyTu));
+    printf("\n");
+    printf("String Reverse (Decryption): ");
+    printf("%s", strrev(mangKyTu));
+    printf("\n");
+    printf("String Lower: ");
+    printf("%s", strlwr(mangKyTu));
+    printf("\n");
+    printf("String Upper: ");
+    printf("%s", strupr(mangKyTu));
+    printf("\n");
+    printf("Find String in  String: ");
+    if (strstr(mangKyTu, "LOI") != NULL) {
+        printf("Found");
+		printf("%s", strstr(mangKyTu, "LOI"));
+    }
+    else {
+        printf("NOT  FOUND");
+	}
 }
 void demoMang2Chieu()
 {

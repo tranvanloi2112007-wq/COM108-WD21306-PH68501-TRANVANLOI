@@ -204,8 +204,6 @@ void chucNangTinhLaiXuatVayNganHangVayTraGop() {
 	} while (chon == 1);
 }
 
-
-
 void vayTienMuaXe() {
 	int chon;
 	
